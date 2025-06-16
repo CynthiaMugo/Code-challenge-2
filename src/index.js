@@ -5,25 +5,25 @@ document.addEventListener('DOMContentLoaded', () => {
     // console.log(input);
     // console.log(form);
 
-    // Add an event listener to the form to handle the submission
+    // event listener to the form to handle the submission
         form.addEventListener("submit", (event) => {
             event.preventDefault();
 
             const guestName = input.value.trim(); // Get the trimmed value of the input field
-            if (guestName === "") { //For empty input
+            if (guestName === "") { // empty input
                 alert("Please enter a guest name.");
                 return;
             }
+            // call function to handle the submit event
             handleClick(guestName);
 
-            const guestList = document.getElementById("guest-list"); // The list where guests will be added
-            // Limit to 10 guests
 
 
             form.reset(); 
     })
+    // Function to handle the click event and add the guest name to the list
     const handleClick = (guestName) => {
-        const addGuest = document.getElementById("guest-list"); // The list where guests will be added
+        const addGuest = document.getElementById("guest-list"); // list where guests will be added
         const parItem = document.createElement("p");
         parItem.textContent = `${guestName} `; // Create a new paragraph element with the guest name
         addGuest.appendChild(parItem);
@@ -44,5 +44,10 @@ document.addEventListener('DOMContentLoaded', () => {
         deleteBtn.addEventListener("click", () => {
             addGuest.removeChild(parItem); 
         });
+
+        //limit the number of guests to 10
+        if (addGuest.children.length > 10) {
+            alert("You cannot exceed 10 guests.")
+        }
     };
 });
