@@ -29,6 +29,34 @@ document.addEventListener('DOMContentLoaded', () => {
         addGuest.appendChild(parItem);
         parItem.style.fontSize = "20px";
 
+
+        //limit the number of guests to 10
+        if (addGuest.children.length > 10) {
+            alert("You cannot exceed 10 guests.")
+        }
+
+        //add RSVP toggle feature
+        const rsvpToggle = document.createElement("button");
+        // Initial text for the RSVP button
+        rsvpToggle.textContent = "Not Attending";
+        parItem.appendChild(rsvpToggle);
+        // style the RSVP button
+        rsvpToggle.style.backgroundColor = "gray";
+        rsvpToggle.style.color = "white";
+        rsvpToggle.style.border = "none";
+        rsvpToggle.style.padding = "5px 5px";
+        rsvpToggle.style.borderRadius = "5px";
+        // Toggle RSVP status on button click conditionally
+        rsvpToggle.addEventListener("click", () => {
+            if (rsvpToggle.textContent === "Not Attending") {
+                rsvpToggle.textContent = "Attending";
+                rsvpToggle.style.backgroundColor = "green";
+            } else {
+                rsvpToggle.textContent = "Not Attending";
+                rsvpToggle.style.backgroundColor = "gray";
+            }
+        });
+
         //remove a guest from the list using a delete button.
         const deleteBtn = document.createElement("button");
         deleteBtn.textContent = "Delete";
@@ -37,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         deleteBtn.style.backgroundColor = "red";
         deleteBtn.style.color = "white";
         deleteBtn.style.border = "none";
+        deleteBtn.style.marginLeft = "10px";
         deleteBtn.style.padding = "5px 10px";
         deleteBtn.style.borderRadius = "5px";
 
@@ -45,9 +74,5 @@ document.addEventListener('DOMContentLoaded', () => {
             addGuest.removeChild(parItem); 
         });
 
-        //limit the number of guests to 10
-        if (addGuest.children.length > 10) {
-            alert("You cannot exceed 10 guests.")
-        }
     };
 });

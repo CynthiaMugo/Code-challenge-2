@@ -1,13 +1,13 @@
 body {
     /* background-image: url("https://img.freepik.com/free-photo/white-heart-flowers-with-love-card-copy-space_24837-587.jpg?uid=R202261631&semt=ais_hybrid&w=740"); */
-    background-color: #9dc3f3;
+    background-color: #F0F4F8;
 }
 .container {
-    background-color: #dee9fb;
+    background-color: #D9E8F5;
     display: block;
     margin: 100px auto;
     text-align: center;
-    width: 60%;
+    width: 50%;
     border-radius: 8px;
     padding: 20px;
 
